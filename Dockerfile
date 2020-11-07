@@ -17,13 +17,11 @@ RUN sed -i -e "s/bin\/ash/bin\/zsh/" /etc/passwd
 
 RUN npm i -g @ionic/cli cordova yarn
 
-RUN sed -i -e "s/git/git ionic ng/" ~/.zshrc
+RUN sed -i -e "s/git/git ionic ng yarn/" ~/.zshrc
 
 RUN echo $'\nexport PATH="$PATH:$(yarn global bin)"\n' >> ~/.zshrc
 
 RUN echo $'\nif type compdef &>/dev/null; then\n\t__ionic(){\n\t\tcompadd -- $(ionic completion -- "${words[@]}" 2>/dev/null)\n\t}\n\n\tcompdef __ionic ionic\nfi\n' >> ~/.zshrc
-
-RUN npm i -g yarn-completions
 
 RUN ionic config set -g npmClient yarn
 
