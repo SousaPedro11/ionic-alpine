@@ -28,3 +28,5 @@ RUN ionic config set -g npmClient yarn
 EXPOSE 8100
 
 EXPOSE 8200
+
+EXPOSE 35729
